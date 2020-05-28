@@ -26,27 +26,78 @@ const Pokemon = (props) => {
     const { front_default } = sprites;
     return (
       <>
-        <Typography variant='h1'>
+        <Typography
+          variant='h1'
+          style={{
+            textAlign: 'center',
+            paddingTop: '30px',
+          }}
+        >
           {`${id}.`} {toFirstCharUppercase(name)}
           <img src={front_default} alt='spread' />
         </Typography>
         <img
-          style={{ width: '300px', height: '300px' }}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            width: '300px',
+            height: '300px',
+          }}
           src={fullImageUrl}
           alt='main'
         />
-        <Typography variant='h3'>Pokemon Info</Typography>
-        <Typography>
+        <Typography
+          variant='h3'
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Pokemon Info
+        </Typography>
+        <Typography
+          style={{
+            textAlign: 'center',
+          }}
+        >
           {'Species: '}
           <Link href={species.url}>{species.name}</Link>
         </Typography>
-        <Typography>Height: {height}</Typography>
-        <Typography>Weight: {weight}</Typography>
-        <Typography variant='h6'>Types:</Typography>
+        <Typography
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Height: {height}
+        </Typography>
+        <Typography
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Weight: {weight}
+        </Typography>
+        <Typography
+          variant='h6'
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Types:
+        </Typography>
         {types.map((typeInfo) => {
           const { type } = typeInfo;
           const { name } = type;
-          return <Typography key={name}> {`${name}`} </Typography>;
+          return (
+            <Typography
+              style={{
+                textAlign: 'center',
+              }}
+              key={name}
+            >
+              {`${name}`}
+            </Typography>
+          );
         })}
       </>
     );
@@ -57,7 +108,14 @@ const Pokemon = (props) => {
       {pokemon !== undefined && pokemon && generatePokemonJSX()}
       {pokemon === false && <Typography>Pokemon not found!</Typography>}
       {pokemon !== undefined && (
-        <Button variant='contained' onClick={() => history.push('/')}>
+        <Button
+          style={{
+            margin: 'auto',
+            display: 'block',
+          }}
+          variant='contained'
+          onClick={() => history.push('/')}
+        >
           Back to pokedex
         </Button>
       )}

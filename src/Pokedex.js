@@ -19,8 +19,8 @@ import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
   pokedexContainer: {
     paddingTop: '20px',
-    paddingLeft: '50px',
-    paddingRight: '50px',
+    paddingLeft: '100px',
+    paddingRight: '100px',
   },
   cardMedia: {
     margin: 'auto',
@@ -80,7 +80,7 @@ const Pokedex = (props) => {
     console.log(pokemonData[`${pokemonId}`]);
     const { id, name, sprite } = pokemonData[pokemonId];
     return (
-      <Grid item xs={4} key={pokemonId}>
+      <Grid item xs={4} key={pokemonId} xs={12} sm={4}>
         <Link to={`/${pokemonId}`} style={{ textDecoration: 'none' }}>
           <Card>
             <CardMedia
